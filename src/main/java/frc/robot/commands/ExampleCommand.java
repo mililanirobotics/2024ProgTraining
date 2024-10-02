@@ -6,30 +6,48 @@ package frc.robot.commands;
 
 import frc.robot.subsystems.ExampleSubsystem;
 import edu.wpi.first.wpilibj2.command.Command;
+import edu.wpi.first.wpilibj.GenericHID;
+import frc.robot.Constants.GamePadConstants;
 
 /** An example command that uses an example subsystem. */
 public class ExampleCommand extends Command {
   @SuppressWarnings({"PMD.UnusedPrivateField", "PMD.SingularField"})
   private final ExampleSubsystem m_subsystem;
+  private final GenericHID controller;
 
   /**
    * Creates a new ExampleCommand.
    *
    * @param subsystem The subsystem used by this command.
    */
-  public ExampleCommand(ExampleSubsystem subsystem) {
+  public ExampleCommand(ExampleSubsystem subsystem, GenericHID controller) {
     m_subsystem = subsystem;
+    this.controller = controller;
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(subsystem);
   }
 
   // Called when the command is initially scheduled.
   @Override
-  public void initialize() {}
+  public void initialize() {
+    // A is 1
+    // B is 2
+    if (controller.getRawButton(GamePadConstants.kAButtonPort)) {
+    m_subsystem.setPower(1);
+  }
+    else if (controller.getRawButton(GamePadConstants.kBButtonPort)) {
+    m_subsystem.setPower(-1);
+  }
+  else {
+    m_subsystem.setPower(0);
+  }
+
+  }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {}
+
 
   // Called once the command ends or is interrupted.
   @Override

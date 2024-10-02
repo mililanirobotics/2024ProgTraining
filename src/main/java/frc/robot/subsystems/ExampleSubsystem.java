@@ -4,6 +4,7 @@
 
 package frc.robot.subsystems;
 
+import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import com.revrobotics.CANSparkMax;
@@ -11,18 +12,17 @@ import com.revrobotics.CANSparkLowLevel.MotorType;
 
 public class ExampleSubsystem extends SubsystemBase {
   /** Creates a new ExampleSubsystem. */
-  private CANSparkMax motor1;
-  private CANSparkMax motor2;
-  private GenericHID controller;
+  private CANSparkMax leftMotor;
+  private CANSparkMax rightMotor;
 
-  public ExampleSubsystem(GenericHID controller) {
-    this.controller = controller;
-    motor1 = new CANSparkMax(7, MotorType.kbrushless);
-    motor2 = new CANSparkMax(10, MotorType.kbrushless);
+  public ExampleSubsystem() {
+    leftMotor = new CANSparkMax(10, MotorType.kBrushless);
+    rightMotor = new CANSparkMax(7, MotorType.kBrushless);
   }
 
   public void setPower(double power) {
-
+    leftMotor.set(power);
+    rightMotor.set(power);
 
   }
 
