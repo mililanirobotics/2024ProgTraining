@@ -4,7 +4,6 @@
 
 package frc.robot.subsystems;
 
-import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import com.revrobotics.CANSparkMax;
@@ -18,16 +17,16 @@ public class ExampleSubsystem extends SubsystemBase {
 
   public ExampleSubsystem(GenericHID controller) {
     this.controller = controller;
-    motor1 = new CANSparkMax(7, MotorType.kBrushless);
-    motor2 = new CANSparkMax(10, MotorType.kBrushless);
+    motor1 = new CANSparkMax(7, MotorType.kbrushless);
+    motor2 = new CANSparkMax(10, MotorType.kbrushless);
   }
 
   public void setPower(double power) {
-    motor1.set(power);
-    motor2.set(power);
+
+
   }
 
-  /**
+  /** 
    * Example command factory method.
    *
    * @return a command
@@ -54,7 +53,6 @@ public class ExampleSubsystem extends SubsystemBase {
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
-    setPower(1);
   }
 
   @Override
