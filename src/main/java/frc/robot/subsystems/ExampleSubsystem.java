@@ -6,10 +6,25 @@ package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import com.revrobotics.CANSparkMax;
+import com.revrobotics.CANSparkLowLevel.MotorType;
+
 
 public class ExampleSubsystem extends SubsystemBase {
   /** Creates a new ExampleSubsystem. */
-  public ExampleSubsystem() {}
+private CANSparkMax leftMotor;
+private CANSparkMax rightMotor;
+
+  public ExampleSubsystem() {
+    leftMotor = new CANSparkMax(10, MotorType.kBrushless);
+    rightMotor = new CANSparkMax(7, MotorType.kBrushless);
+  }
+
+  public void setPower(double power) {
+    leftMotor.set(power);
+    rightMotor.set(power);
+  }
+
 
   /**
    * Example command factory method.
