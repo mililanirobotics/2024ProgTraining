@@ -13,7 +13,20 @@ package frc.robot;
  * constants are needed, to reduce verbosity.
  */
 public final class Constants {
-  public static class GamepadConstants {
+  public static class OperatorConstants {
+    public static final int kDriverControllerPort = 0;
+  }
+
+public static class FlywheelConstants{
+  public static final int kFeedFlywheelId = 6;
+  public static final int kShootFlywheelId = 11;
+
+  public static final double kScoringSpeed = 100;
+  public static final double kEjectSpeed = 25;
+  public static final double kFeedSpeed = 0.1;
+}
+
+  public static class GamePadConstants {
     public static final int kPrimaryGamepadPort = 0;
     public static final int kSecondaryGamepadPort = 1;
     public static final int kTestingGamepadPort = 2;
@@ -46,8 +59,6 @@ public final class Constants {
 
     //Deadzone value
     public final static double kDeadzone = 0.2;
-  }
-  public static class OperatorConstants {
-    public static final int kDriverControllerPort = 0;
+
   }
 }
