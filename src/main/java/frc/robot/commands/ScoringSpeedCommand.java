@@ -3,7 +3,7 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj2.command.Command;
 
 import frc.robot.subsystems.FlyWheelSubsystem;
-import frc.robot.Constants.FlywheelConstants;
+import frc.robot.Constants.FlyWheelConstants;
 
 public class ScoringSpeedCommand extends Command{
     private final FlyWheelSubsystem flywheelSubsystem;

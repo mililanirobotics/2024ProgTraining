@@ -6,7 +6,7 @@ import com.ctre.phoenix6.controls.NeutralOut;
 import com.ctre.phoenix6.controls.VelocityVoltage;
 import com.ctre.phoenix6.hardware.TalonFX;
 
-import frc.robot.Constants.FlywheelConstants;
+import frc.robot.Constants.FlyWheelConstants;
 
 public class FlyWheelSubsystem extends SubsystemBase{
     private final TalonFX feedFlywheel;
@@ -17,8 +17,8 @@ public class FlyWheelSubsystem extends SubsystemBase{
 
 
     public FlyWheelSubsystem() {
-        feedFlywheel = new TalonFX(FlywheelConstants.kFeedFlywheelId);
-        shootFlywheel = new TalonFX(FlywheelConstants.kShootFlywheelId);
+        feedFlywheel = new TalonFX(FlyWheelConstants.kFeedFlyWheelId);
+        shootFlywheel = new TalonFX(FlyWheelConstants.kShootFlyWheelId);
     }
 
     public void setFeedWheel(double power) {

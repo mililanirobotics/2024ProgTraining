@@ -57,9 +57,9 @@ public final class Constants {
   }
 
 
-  public static class FlywheelConstants {
-    public static final int kFeedFlywheelId = 6;
-    public static final int kShootFlywheelId = 11;
+  public static class FlyWheelConstants {
+    public static final int kFeedFlyWheelId = 6;
+    public static final int kShootFlyWheelId = 11;
 
     public static final double kScoringSpeed = 100;
     public static final int kEjectSpeed = 25;
