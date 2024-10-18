@@ -12,22 +12,21 @@ import com.revrobotics.CANSparkLowLevel.MotorType;
 
 public class ExampleSubsystem extends SubsystemBase {
   /** Creates a new ExampleSubsystem. */
-  private CANSparkMax motor1;
-  private CANSparkMax motor2;
-  private GenericHID controller;
+  private CANSparkMax leftMotor;
+  private CANSparkMax rightMotor;
 
-  public ExampleSubsystem(GenericHID controller) {
-    this.controller = controller;
-    motor1 = new CANSparkMax(7, MotorType.kBrushless);
-    motor2 = new CANSparkMax(10, MotorType.kBrushless);
+  public ExampleSubsystem() {
+    leftMotor = new CANSparkMax(10, MotorType.kBrushless);
+    rightMotor = new CANSparkMax(7, MotorType.kBrushless);
   }
 
   public void setPower(double power) {
-    motor1.set(power);
-    motor2.set(power);
+    leftMotor.set(power);
+    rightMotor.set(power);
+
   }
 
-  /**
+  /** 
    * Example command factory method.
    *
    * @return a command
@@ -54,7 +53,6 @@ public class ExampleSubsystem extends SubsystemBase {
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
-    setPower(1);
   }
 
   @Override

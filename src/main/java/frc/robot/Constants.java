@@ -16,4 +16,49 @@ public final class Constants {
   public static class OperatorConstants {
     public static final int kDriverControllerPort = 0;
   }
+
+public static class FlywheelConstants{
+  public static final int kFeedFlywheelId = 6;
+  public static final int kShootFlywheelId = 11;
+
+  public static final double kScoringSpeed = 100;
+  public static final double kEjectSpeed = 25;
+  public static final double kFeedSpeed = 0.1;
+}
+
+  public static class GamePadConstants {
+    public static final int kPrimaryGamepadPort = 0;
+    public static final int kSecondaryGamepadPort = 1;
+    public static final int kTestingGamepadPort = 2;
+
+    //Gamepad Axis Ports
+    public static final int kleftXJoystickPort = 0;
+    public static final int kLeftYJoystickPort = 1;
+    public static final int kRightXJoystickPort = 4;
+    public static final int kRightYJoystickPort = 5; 
+    public final static int kLeftTriggerPort = 2;
+    public final static int kRightTriggerPort = 3;
+
+    //Gamepad Button Ports
+    public final static int kAButtonPort = 1;
+    public final static int kBButtonPort = 2;
+    public final static int kXButtonPort = 3;
+    public final static int kYButtonPort = 4;
+    public final static int kLeftBumperPort = 5;
+    public final static int kRightBumperPort = 6;
+    public final static int kBackButtonPort = 7;
+    public final static int kStartButtonPort = 8;   
+
+    //joystick port for the gamepad
+    public final static int kPrimaryLeftStickPort = 0;
+    public final static int kPrimaryRightStickPort = 1;
+
+    //Dpad values
+    public final static int kDpadUp = 0;
+    public final static int kDpadDown = 180;
+
+    //Deadzone value
+    public final static double kDeadzone = 0.2;
+
+  }
 }
