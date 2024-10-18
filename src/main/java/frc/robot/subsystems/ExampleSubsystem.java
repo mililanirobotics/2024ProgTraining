@@ -4,27 +4,25 @@
 
 package frc.robot.subsystems;
 
+import com.revrobotics.CANSparkMax;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
-import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkLowLevel.MotorType;
-
 
 public class ExampleSubsystem extends SubsystemBase {
   /** Creates a new ExampleSubsystem. */
-private CANSparkMax leftMotor;
-private CANSparkMax rightMotor;
+  private CANSparkMax rightMotor;
+  private CANSparkMax leftMotor;
 
   public ExampleSubsystem() {
-    leftMotor = new CANSparkMax(10, MotorType.kBrushless);
     rightMotor = new CANSparkMax(7, MotorType.kBrushless);
+    leftMotor = new CANSparkMax(10, MotorType.kBrushless);
   }
 
   public void setPower(double power) {
-    leftMotor.set(power);
     rightMotor.set(power);
+    leftMotor.set(power);
   }
-
 
   /**
    * Example command factory method.
@@ -41,7 +39,8 @@ private CANSparkMax rightMotor;
   }
 
   /**
-   * An example method querying a boolean state of the subsystem (for example, a digital sensor).
+   * An example method querying a boolean state of the subsystem (for example, a
+   * digital sensor).
    *
    * @return value of some boolean subsystem state, such as a digital sensor.
    */
