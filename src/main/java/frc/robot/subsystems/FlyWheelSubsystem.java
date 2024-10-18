@@ -12,9 +12,6 @@ public class FlyWheelSubsystem extends SubsystemBase{
     private final TalonFX feedFlywheel;
     private final TalonFX shootFlywheel;
     private final VelocityVoltage shootFlywheelVelocity = new VelocityVoltage(0);
-    
-
-
 
     public FlyWheelSubsystem() {
         feedFlywheel = new TalonFX(FlyWheelConstants.kFeedFlyWheelId);
@@ -40,12 +37,6 @@ public class FlyWheelSubsystem extends SubsystemBase{
     public void brakeShootFlywheel() {
         shootFlywheel.setControl(shootFlywheelVelocity.withVelocity(0));
     }
-
-
-     
-
-
-
 
     private boolean getRawButton(int kabuttonport) {
         // TODO Auto-generated method stub

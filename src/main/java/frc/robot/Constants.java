@@ -15,9 +15,12 @@ package frc.robot;
 public final class Constants {
   public static class OperatorConstants {
     public static final int kDriverControllerPort = 0;
-  }
-  public static class GamepadConstants{
-    public static final int kPrimaryGamepadPort = 0;
+
+
+
+
+    public static class GamepadConstants {
+      public static final int kPrimaryGamepadPort = 0;
     public static final int kSecondaryGamepadPort = 1;
     public static final int kTestingGamepadPort = 2;
 
@@ -49,5 +52,17 @@ public final class Constants {
 
     //Deadzone value
     public final static double kDeadzone = 0.2;
+
+    }
+  }
+
+
+  public static class FlyWheelConstants {
+    public static final int kFeedFlyWheelId = 6;
+    public static final int kShootFlyWheelId = 11;
+
+    public static final double kScoringSpeed = 100;
+    public static final int kEjectSpeed = 25;
+    public static final double kFeedSpeed = 0.1;
   }
 }

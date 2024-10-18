@@ -3,13 +3,15 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj2.command.Command;
 
 import frc.robot.subsystems.FlyWheelSubsystem;
-import frc.robot.Constants.FlyWheelConstants;
 
 public class ScoringSpeedCommand extends Command{
+    @SuppressWarnings({"PMD.UnusedPrivateField", "PMD.SingularField"})
     private final FlyWheelSubsystem flywheelSubsystem;
 
     public ScoringSpeedCommand(FlyWheelSubsystem flywheelSubsystem) {
         this.flywheelSubsystem = flywheelSubsystem;
+
+        addRequirements(flywheelSubsystem);
     }
 
     @Override
