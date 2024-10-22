@@ -29,7 +29,7 @@ public void end(boolean interupted) {
 
 @Override
 public boolean isFinished() {
-    return !joystick.getRawButton(GamePadConstants.kRightBumperPort);
+    return !joystick.getRawButton(GamePadConstants.kLeftBumperPort);
     }
 
 }
