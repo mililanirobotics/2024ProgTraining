@@ -2,14 +2,13 @@ package frc.robot.commands.Feeder;
 
 import frc.robot.Constants.FlywheelConstants;
 import frc.robot.Constants.GamePadConstants;
-import frc.robot.Constants.OperatorConstants;
+// import frc.robot.Constants.OperatorConstants;
 import frc.robot.subsystems.FlywheelSubsystem;
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj2.command.Command;
 
 
 public class ReverseFeederCommand extends Command {
-  @SuppressWarnings({"PMD.UnusedPrivateField", "PMD.SingularField"})
   private final FlywheelSubsystem m_flywheelSubsystem;
   private GenericHID joystick;
 
