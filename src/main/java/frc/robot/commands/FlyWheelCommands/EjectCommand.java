@@ -5,17 +5,17 @@ import frc.robot.subsystems.FlyWheelSubsystem;
 import edu.wpi.first.wpilibj2.command.Command;
 
 public class EjectCommand extends Command {
-    private final FlyWheelSubsystem m_flywheelsubsystem;
+    private final FlyWheelSubsystem m_flywheelSubsystem;
 
-    public EjectCommand(FlyWheelSubsystem m_flywheelsubsystem) {
-        this.m_flywheelsubsystem = m_flywheelsubsystem;
+    public EjectCommand(FlyWheelSubsystem m_flywheelSubsystem) {
+        this.m_flywheelSubsystem = m_flywheelSubsystem;
 
-        addRequirements(m_flywheelsubsystem);
+        addRequirements(m_flywheelSubsystem);
     }
 
     @Override
   public void initialize() {
-    m_flywheelsubsystem.setShootFlyWheel(FlyWheelConstants.kEjectSpeed);
+    m_flywheelSubsystem.setShootFlyWheel(FlyWheelConstants.kEjectSpeed);
   }
 
   @Override

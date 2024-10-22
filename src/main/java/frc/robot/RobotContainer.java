@@ -5,8 +5,15 @@
 package frc.robot;
 
 import frc.robot.Constants.OperatorConstants;
+import frc.robot.Constants.OperatorConstants.GamepadConstants;
 import frc.robot.commands.Autos;
 import frc.robot.commands.ExampleCommand;
+import frc.robot.commands.FeederCommands.FeedCommand;
+import frc.robot.commands.FeederCommands.ReverseFeedCommand;
+import frc.robot.commands.FlyWheelCommands.BrakeCommand;
+import frc.robot.commands.FlyWheelCommands.EjectCommand;
+import frc.robot.commands.FlyWheelCommands.NeutralOutCommand;
+import frc.robot.commands.FlyWheelCommands.ScoringSpeedCommand;
 import frc.robot.subsystems.ExampleSubsystem;
 import frc.robot.subsystems.FlyWheelSubsystem;
 import edu.wpi.first.wpilibj.GenericHID;
@@ -22,47 +29,43 @@ import edu.wpi.first.wpilibj2.command.button.Trigger;
  * subsystems, commands, and trigger mappings) should be declared here.
  */
 public class RobotContainer {
-  // The robot's subsystems and commands are defined here...
   private final GenericHID controller = new GenericHID(0);
-  private final ExampleSubsystem m_exampleSubsystem = new ExampleSubsystem();
+  private final FlyWheelSubsystem m_flywheelSubsystem = new FlyWheelSubsystem();
 
-  // Replace with CommandPS4Controller or CommandJoystick if needed
-  private final CommandXboxController m_driverController =
-      new CommandXboxController(OperatorConstants.kDriverControllerPort);
 
-  /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
-    m_exampleSubsystem.setDefaultCommand(new ExampleCommand(m_exampleSubsystem, controller));
-    // Configure the trigger bindings
     configureBindings();
   }
 
-  /**
-   * Use this method to define your trigger->command mappings. Triggers can be created via the
-   * {@link Trigger#Trigger(java.util.function.BooleanSupplier)} constructor with an arbitrary
-   * predicate, or via the named factories in {@link
-   * edu.wpi.first.wpilibj2.command.button.CommandGenericHID}'s subclasses for {@link
-   * CommandXboxController Xbox}/{@link edu.wpi.first.wpilibj2.command.button.CommandPS4Controller
-   * PS4} controllers or {@link edu.wpi.first.wpilibj2.command.button.CommandJoystick Flight
-   * joysticks}.
-   */
   private void configureBindings() {
-    // Schedule `ExampleCommand` when `exampleCondition` changes to `true`
-    //new Trigger(m_exampleSubsystem::exampleCondition)
-       // .onTrue(new ExampleCommand(m_exampleSubsystem));
+      new JoystickButton(controller, GamepadConstants.kAButtonPort).onTrue(
+        new ScoringSpeedCommand(m_flywheelSubsystem)
+      );
 
-    // Schedule `exampleMethodCommand` when the Xbox controller's B button is pressed,
-    // cancelling on release.
-    m_driverController.b().whileTrue(m_exampleSubsystem.exampleMethodCommand());
+      new JoystickButton(controller, GamepadConstants.kBButtonPort).onTrue(
+        new BrakeCommand(m_flywheelSubsystem)
+      );
+
+      new JoystickButton(controller, GamepadConstants.kXButtonPort).onTrue(
+        new NeutralOutCommand(m_flywheelSubsystem)
+      );
+
+      new JoystickButton(controller, GamepadConstants.kYButtonPort).onTrue(
+        new EjectCommand(m_flywheelSubsystem)
+      );
+
+      new JoystickButton(controller, GamepadConstants.kLeftBumperPort).onTrue(
+        new FeedCommand(m_flywheelSubsystem, controller)
+      );
+
+      new JoystickButton(controller, GamepadConstants.kRightBumperPort).onTrue(
+        new ReverseFeedCommand(m_flywheelSubsystem, controller)
+      );
   }
 
-  /**
-   * Use this to pass the autonomous command to the main {@link Robot} class.
-   *
-   * @return the command to run in autonomous
-   */
-  public Command getAutonomousCommand() {
-    // An example command will be run in autonomous
-    return Autos.ExampleAuto(m_exampleSubsystem);
+  public Command getAutoCommand() {
+      return null;
   }
+
+
 }
