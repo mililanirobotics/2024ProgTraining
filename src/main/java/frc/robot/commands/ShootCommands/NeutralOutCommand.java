@@ -5,7 +5,6 @@ import edu.wpi.first.wpilibj2.command.Command;
 
 
 public class NeutralOutCommand extends Command {
-  @SuppressWarnings({"PMD.UnusedPrivateField", "PMD.SingularField"})
   private final FlywheelSubsystem m_flywheelSubsystem;
 
   public NeutralOutCommand(FlywheelSubsystem m_flywheelSubsystem) {

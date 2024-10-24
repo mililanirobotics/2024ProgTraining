@@ -5,14 +5,14 @@
 package frc.robot;
 
 
-import com.revrobotics.CANSparkBase.ControlType;
+// import com.revrobotics.CANSparkBase.ControlType;
 
 import edu.wpi.first.wpilibj.GenericHID;
-import edu.wpi.first.wpilibj.Joystick;
+// import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.robot.Constants.GamePadConstants;
-import frc.robot.commands.Autos;
+// import frc.robot.commands.Autos;
 import frc.robot.commands.Feeder.FeederCommand;
 import frc.robot.commands.Feeder.ReverseFeederCommand;
 import frc.robot.commands.ShootCommands.BrakeCommand;

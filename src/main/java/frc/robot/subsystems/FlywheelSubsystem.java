@@ -1,5 +1,6 @@
 package frc.robot.subsystems;
 
+import com.ctre.phoenix6.configs.TalonFXConfiguration;
 import com.ctre.phoenix6.controls.NeutralOut;
 import com.ctre.phoenix6.controls.VelocityVoltage;
 import com.ctre.phoenix6.hardware.TalonFX;
@@ -16,7 +17,19 @@ public class FlywheelSubsystem extends SubsystemBase{
     private VelocityVoltage shootFlywheelVelocity = new VelocityVoltage(0);
     public FlywheelSubsystem() {
       feedFlywheel = new TalonFX(FlywheelConstants.kFeedFlywheelId);
-      shootFlywheel = new TalonFX(FlywheelConstants.kFeedFlywheelId);
+      shootFlywheel = new TalonFX(FlywheelConstants.kShootFlywheelId);
+
+        TalonFXConfiguration FeedConfig = new TalonFXConfiguration();
+
+        TalonFXConfiguration ShootConfig = new TalonFXConfiguration();
+        ShootConfig.Slot0.kS = 0.1; // Add 0.1 V output to overcome static friction
+        ShootConfig.Slot0.kV = 0.12; // A velocity target of 1 rps results in 0.12 V output
+        ShootConfig.Slot0.kP = 0.11; // An error of 1 rps results in 0.11 V output
+        ShootConfig.Slot0.kI = 0.1; // no output for integrated error
+        ShootConfig.Slot0.kD = 0; // no output for error derivative
+
+        feedFlywheel.getConfigurator().apply(FeedConfig);
+        shootFlywheel.getConfigurator().apply(ShootConfig);
     }
     
 

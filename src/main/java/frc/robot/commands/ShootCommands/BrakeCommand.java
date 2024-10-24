@@ -5,7 +5,6 @@ import edu.wpi.first.wpilibj2.command.Command;
 
 
 public class BrakeCommand extends Command {
-  @SuppressWarnings({"PMD.UnusedPrivateField", "PMD.SingularField"})
   private final FlywheelSubsystem m_flywheelSubsystem;
 
   public BrakeCommand(FlywheelSubsystem m_flywheelSubsystem) {
