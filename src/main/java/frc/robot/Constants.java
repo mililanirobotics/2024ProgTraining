@@ -16,9 +16,6 @@ public final class Constants {
   public static class OperatorConstants {
     public static final int kDriverControllerPort = 0;
 
-
-
-
     public static class GamepadConstants {
       public static final int kPrimaryGamepadPort = 0;
     public static final int kSecondaryGamepadPort = 1;
@@ -64,5 +61,12 @@ public final class Constants {
     public static final double kScoringSpeed = 100;
     public static final int kEjectSpeed = 25;
     public static final double kFeedSpeed = 0.1;
+  }
+
+  public static class TestConstants {
+    public static final int kLeftMotorId = 10;
+    public static final int kRightMotorId = 7;
+
+    public static final int kCountsPerRevolution = 42;
   }
 }

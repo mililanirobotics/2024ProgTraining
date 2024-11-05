@@ -6,17 +6,17 @@ import frc.robot.subsystems.FlyWheelSubsystem;
 
 public class ScoringSpeedCommand extends Command{
     @SuppressWarnings({"PMD.UnusedPrivateField", "PMD.SingularField"})
-    private final FlyWheelSubsystem flywheelSubsystem;
+    private final FlyWheelSubsystem m_flywheelSubsystem;
 
-    public ScoringSpeedCommand(FlyWheelSubsystem flywheelSubsystem) {
-        this.flywheelSubsystem = flywheelSubsystem;
+    public ScoringSpeedCommand(FlyWheelSubsystem m_flywheelSubsystem) {
+        this.m_flywheelSubsystem = m_flywheelSubsystem;
 
-        addRequirements(flywheelSubsystem);
+        addRequirements(m_flywheelSubsystem);
     }
 
     @Override
     public void initialize() {
-        flywheelSubsystem.setShootFlyWheel(100);
+        m_flywheelSubsystem.setShootFlyWheel(100);
     }
 
     @Override
